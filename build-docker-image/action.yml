@@ -29,8 +29,8 @@ runs:
         file: ${{ inputs.file }}
         build-args: |
           ${{ inputs.build-args }}
-        cache-from: type=gha,scope=${{ inputs.name }}
-        cache-to: type=gha,scope=${{ inputs.name }}
+        cache-from: type=gha,scope=${{ inputs.file }}
+        cache-to: type=gha,scope=${{ inputs.file }}
         tags: |
           ${{ inputs.name }}
         outputs: type=docker,dest=/tmp/${{ inputs.name }}.tar
