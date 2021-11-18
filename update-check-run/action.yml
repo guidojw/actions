@@ -20,6 +20,7 @@ inputs:
   status:
     description: The status of the check (defaults to completed)
     required: false
+    default: completed
   details_url:
     description: A URL with more details about the check run to attach to the check run summary
     required: false
