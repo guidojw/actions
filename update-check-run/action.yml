@@ -1,0 +1,45 @@
+name: Update Check Run
+description: Creates or updates a Check Run on a commit authenticated as a GitHub App
+
+inputs:
+  app_id:
+    description: The ID of the GitHub App to authenticate as
+    required: true
+  app_private_key:
+    description: The app's private key to sign the access token request with
+    required: true
+  sha:
+    description: The SHA of the target commit (defaults to the current commit)
+    required: false
+  name:
+    description: The name to call the check run
+    required: true
+  conclusion:
+    description: The conclusion of the check run (required if status is completed)
+    required: false
+  status:
+    description: The status of the check (defaults to completed)
+    required: false
+  details_url:
+    description: A URL with more details about the check run to attach to the check run summary
+    required: false
+
+runs:
+  using: composite
+  steps:
+    - name: Generate app token
+      id: generate_token
+      uses: tibdex/github-app-token@v1
+      with:
+        app_id: ${{ inputs.app_id }}
+        private_key: ${{ inputs.app_private_key }}
+
+    - name: Update check run
+      uses: LouisBrunner/checks-action@v1.2.0
+      with:
+        sha: ${{ inputs.sha }}
+        token: ${{ steps.generate_token.outputs.token }}
+        name: ${{ inputs.name }}
+        conclusion: ${{ inputs.conclusion }}
+        status: ${{ inputs.status }}
+        details_url: ${{ inputs.details_url }}
