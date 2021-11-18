@@ -5,7 +5,7 @@ inputs:
   app_id:
     description: The ID of the GitHub App to authenticate as
     required: true
-  app_private_key:
+  private_key:
     description: The app's private key to sign the access token request with
     required: true
   sha:
@@ -32,7 +32,7 @@ runs:
       uses: tibdex/github-app-token@v1
       with:
         app_id: ${{ inputs.app_id }}
-        private_key: ${{ inputs.app_private_key }}
+        private_key: ${{ inputs.private_key }}
 
     - name: Update check run
       uses: LouisBrunner/checks-action@v1.2.0
