@@ -30,7 +30,7 @@ runs:
         build-args: |
           ${{ inputs.build-args }}
         cache-from: type=gha,scope=${{ inputs.file || 'Dockerfile' }}
-        cache-to: type=gha,scope=${{ inputs.file || 'Dockerfile }}
+        cache-to: type=gha,scope=${{ inputs.file || 'Dockerfile' }}
         tags: |
           ${{ inputs.name }}
         outputs: type=docker,dest=/tmp/${{ inputs.name }}.tar
