@@ -8,6 +8,9 @@ inputs:
   build-args:
     description: The arguments to build the image with
     required: false
+  target:
+    description: The target stage to build
+    required: false
   name:
     description: The name to call the image
     required: true
@@ -33,6 +36,7 @@ runs:
         cache-to: type=gha,scope=${{ inputs.file || 'Dockerfile' }}
         tags: |
           ${{ inputs.name }}
+        target: ${{ inputs.target }}
         outputs: type=docker,dest=/tmp/${{ inputs.name }}.tar
 
     - name: Upload artifact
