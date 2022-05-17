@@ -23,10 +23,10 @@ runs:
   using: composite
   steps:
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@f211e3e9ded2d9377c8cadc4489a4e38014bc4c9 # tag=v1
+      uses: docker/setup-buildx-action@dc7b9719a96d48369863986a06765841d7ea23f6 # tag=v2.0.0
 
     - name: Build image
-      uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a # tag=v2
+      uses: docker/build-push-action@e551b19e49efd4e98792db7592c17c09b89db8d8 # tag=v3.0.0
       with:
         context: .
         file: ${{ inputs.file }}
@@ -41,7 +41,7 @@ runs:
 
     - name: Upload artifact
       if: fromJSON(inputs.upload)
-      uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2 # tag=v2
+      uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 # tag=v3.0.0
       with:
         name: ${{ inputs.name }}
         path: /tmp/${{ inputs.name }}.tar
