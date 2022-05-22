@@ -37,8 +37,8 @@ runs:
         file: ${{ inputs.file }}
         build-args: |
           ${{ inputs.build-args }}
-        cache-from: type=gha,scope=${{ format('{0}/{1}', inputs.context, inputs.file) }}
-        cache-to: type=gha,scope=${{ format('{0}/{1}', inputs.context, inputs.file) }}
+        cache-from: type=gha,scope=${{ inputs.file }}
+        cache-to: type=gha,scope=${{ inputs.file }}
         tags: |
           ${{ inputs.name }}
         target: ${{ inputs.target }}
