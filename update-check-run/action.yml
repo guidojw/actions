@@ -30,13 +30,13 @@ runs:
   steps:
     - name: Generate app token
       id: generate_token
-      uses: tibdex/github-app-token@586e1a624db6a5a4ac2c53daeeded60c5e3d50fe # tag=v1.5.2
+      uses: tibdex/github-app-token@021a2405c7f990db57f5eae5397423dcc554159c # v1.7.0
       with:
         app_id: ${{ inputs.app_id }}
         private_key: ${{ inputs.private_key }}
 
     - name: Update check run
-      uses: LouisBrunner/checks-action@3d24d4813a797720cc4e2080a50bdafb3373aef1 # tag=v1.2.0
+      uses: LouisBrunner/checks-action@87e7256e004e2625f00da7b5fd8c855cb520da89 # v1.5.0
       with:
         sha: ${{ inputs.sha }}
         token: ${{ steps.generate_token.outputs.token }}
