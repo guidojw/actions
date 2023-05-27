@@ -14,11 +14,11 @@ runs:
   using: composite
   steps:
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@8c0edbc76e98fa90f69d9a2c020dcb50019dc325 # v2.2.1
+      uses: docker/setup-buildx-action@4b4e9c3e2d4531116a6f8ba8e71fc6e2cb6e6c8c # v2.5.0
 
     - name: Download artifact
       if: fromJSON(inputs.download)
-      uses: actions/download-artifact@9782bd6a9848b53b110e712e20e42d89988822b7 # v3.0.1
+      uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
       with:
         name: ${{ inputs.name }}
         path: /tmp
