@@ -37,8 +37,8 @@ runs:
         file: ${{ inputs.file }}
         build-args: |
           ${{ inputs.build-args }}
-        cache-from: type=gha,scope=${{ inputs.file }}
-        cache-to: type=gha,scope=${{ inputs.file }}
+        cache-from: type=gha,scope=${{ github.ref_name }}-${{ inputs.file }}-${{ inputs.target || 'main' }}
+        cache-to: type=gha,mode=max,scope=${{ github.ref_name }}-${{ inputs.file }}-${{ inputs.target || 'main' }}
         tags: |
           ${{ inputs.name }}
         target: ${{ inputs.target }}
