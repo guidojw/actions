@@ -23,9 +23,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
         with:
-          node-version: 20.2.0
+          node-version-file: .nvmrc
 
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release@22.0.1
+        run: |
+          npx semantic-release@22.0.1
