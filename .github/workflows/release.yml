@@ -29,5 +29,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npm install -g conventional-changelog-conventionalcommits
+          npm install conventional-changelog-conventionalcommits -D
           npx semantic-release@22.0.1
