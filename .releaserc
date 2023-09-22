@@ -4,13 +4,25 @@
     [
       "@semantic-release/commit-analyzer",
       {
+        "preset": "conventionalcommits",
         "releaseRules": [
           { "type": "chore", "release": "patch" },
           { "type": "refactor", "release": "patch" }
         ]
       }
     ],
-    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalcommits",
+        "presetConfig": {
+          "types": [
+            { "type": "chore", "section": "Miscellaneous Chores", "hidden": false },
+            { "type": "refactor", "section": "Code Refactors", "hidden": false }
+          ]
+        }
+      }
+    ],
     "@semantic-release/github"
   ]
 }
