@@ -36,7 +36,7 @@ runs:
         private_key: ${{ inputs.private_key }}
 
     - name: Update check run
-      uses: LouisBrunner/checks-action@c6dbaea4f9c79ccfe67c038acddaf713518b255d # v1.6.2
+      uses: LouisBrunner/checks-action@6b626ffbad7cc56fd58627f774b9067e6118af23 # v2.0.0
       with:
         sha: ${{ inputs.sha }}
         token: ${{ steps.generate_token.outputs.token }}
