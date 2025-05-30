@@ -6,8 +6,10 @@
       {
         "preset": "conventionalcommits",
         "releaseRules": [
-          { "type": "chore", "release": "patch" },
-          { "type": "refactor", "release": "patch" }
+          { "type": "chore", "breaking": false, "release": "patch" },
+          { "type": "chore", "breaking": true, "release": "major" },
+          { "type": "refactor", "breaking": false, "release": "patch" },
+          { "type": "refactor", "breaking": true, "release": "major" }
         ]
       }
     ],
